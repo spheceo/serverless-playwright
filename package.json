@@ -1,0 +1,22 @@
+{
+  "name": "ig-x-api-v4",
+  "type": "module",
+  "scripts": {
+    "build": "nitro build",
+    "dev": "nitro dev",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@sparticuz/chromium": "^143.0.4",
+    "@t3-oss/env-core": "^0.13.10",
+    "elysia": "^1.4.22",
+    "playwright-core": "^1.58.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.10",
+    "nitro": "latest",
+    "playwright": "^1.58.0",
+    "rolldown": "latest"
+  }
+}

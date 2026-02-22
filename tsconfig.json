@@ -1,0 +1,10 @@
+{
+  "extends": ["nitro/tsconfig"],
+  "compilerOptions": {
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "paths": {
+      "~/*": ["./*"]
+    }
+  }
+}
