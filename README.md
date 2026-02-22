@@ -72,3 +72,6 @@ pnpm dev
 pnpm build
 pnpm lint
 ```
+
+## Deployment status
+Only Vercel has been confirmed to work for deployment at this stage.
