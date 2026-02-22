@@ -1,5 +1,6 @@
-import { defineConfig } from "nitro"
+import { defineNitroConfig } from "nitro/config"
 
-export default defineConfig({
+export default defineNitroConfig({
+  builder: "rollup",
   serverEntry: './src/index.ts',
 });

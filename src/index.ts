@@ -1,5 +1,5 @@
 import { Elysia } from "elysia";
-import { launchBrowser } from "~/lib/browser.ts";
+import { launchBrowser } from "../lib/browser.js";
 
 const app = new Elysia();
 

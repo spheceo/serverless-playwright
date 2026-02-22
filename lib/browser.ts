@@ -13,13 +13,12 @@ async function getPlaywrightDev() {
 }
 
 export async function launchBrowser() {
-  const args = ["--remote-debugging-port=9222"];
   // const proxy = { server: env.PROXY_URL };
 
   if (isProd) {
     return playwrightCore.launch({
       // Sparticuz Chromium is needed in serverless where full Chrome isn't available.
-      args: [...chromium.args, ...args],
+      args: [...chromium.args],
       executablePath: await chromium.executablePath(),
       headless: true,
       // proxy,
@@ -33,7 +32,6 @@ export async function launchBrowser() {
 
   return playwrightDev.chromium.launch({
     // Local dev runs headed so you can watch the flow and debug it.
-    args,
     headless: false,
     // proxy,
   });
