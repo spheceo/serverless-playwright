@@ -1,9 +1,16 @@
+# Dependencies
 node_modules
+
+# Build output
 dist
+/.output
+/.nitro
+
+# Runtime / local data
 .data
-.nitro
-.cache
-.output
+cache
+/cache
+
+# Environment files
 .env
 .env.local
-cache/

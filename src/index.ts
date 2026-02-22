@@ -4,7 +4,7 @@ import { launchBrowser } from "../lib/browser.js";
 const app = new Elysia();
 
 // Routes
-app.get("/", () => "Welcome to serverless!");
+app.get("/", () => "Welcome to serverless-playwright!");
 
 app.get("/test", async () => {
   const browser = await launchBrowser();
