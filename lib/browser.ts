@@ -1,6 +1,6 @@
 import { chromium, type Browser } from "playwright-core";
 import chromiumLambda from "@sparticuz/chromium";
-import { env } from "./env.js";
+import { env } from "./env";
 
 const isProd = env.NODE_ENV === "production";
 
