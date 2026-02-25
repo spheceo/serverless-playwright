@@ -1,25 +1,20 @@
 {
-  "name": "ig-x-api-v4",
-  "type": "module",
+  "name": "test",
+  "version": "0.0.0",
   "scripts": {
-    "build": "nitro build",
-    "dev": "nitro dev",
-    "lint": "tsc --noEmit"
+    "dev": "PORT=8080 bun run --watch api/index.ts"
   },
   "dependencies": {
     "@sparticuz/chromium": "^143.0.4",
     "@t3-oss/env-core": "^0.13.10",
-    "chromium-bidi": "^15.0.0",
-    "elysia": "1.4.25",
-    "h3": "2.0.1-rc.2",
     "playwright-core": "^1.58.0",
-    "unstorage": "2.0.0-alpha.3",
-    "zod": "^4.3.6"
+    "zod": "^4.3.6",
+    "@elysiajs/static": "^1.4.7",
+    "elysia": "^1.4.25"
   },
   "devDependencies": {
-    "@types/node": "^25.0.10",
-    "nitro": "3.0.0",
+    "@types/bun": "^1.3.9",
     "playwright": "^1.58.0",
-    "rollup": "^4.59.0"
+    "bun-types": "^1.3.9"
   }
 }

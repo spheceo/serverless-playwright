@@ -1,77 +1,23 @@
-# serverless-playwright
-Run Playwright in a serverless-friendly Nitro + Elysia app, using local Chromium in development and `@sparticuz/chromium` in production.
+# test
 
-## How it works
-1. Nitro boots your custom Elysia server entry.
-2. The `/test` route launches a browser, opens a page, and returns the page title.
-3. `launchBrowser()` chooses the browser runtime by environment:
-   - `production`: Lambda-compatible Chromium (`@sparticuz/chromium`)
-   - `development`: local `playwright` Chromium
+This repository provides a minimal Bun API template built with the Elysia framework and intended for deployment on Vercel.
 
-## Runtime flow
-### 1) Nitro entry wiring
-```ts
-// nitro.config.ts
-import { defineNitroConfig } from "nitro/config"
+## Getting Started
 
-export default defineNitroConfig({
-  builder: "rollup",
-  serverEntry: "./src/index.ts",
-});
+First, run the development server:
+
+```
+bun run dev
 ```
 
-### 2) Route that runs Playwright
-```ts
-// src/index.ts
-import { Elysia } from "elysia";
-import { launchBrowser } from "../lib/browser.js";
+`bun run --watch` (used by the dev script) is a live-reload mode for Bun applications. It watches your project files and automatically rebuilds/restarts the app whenever code changes, which speeds up local development and shortens the edit-run-test loop.
 
-const app = new Elysia();
+Open [http://localhost:8080](http://localhost:8080) with your browser or API client to see the result.
 
-app.get("/test", async () => {
-  const browser = await launchBrowser();
-  const context = await browser.newContext();
-  const page = await context.newPage();
-  await page.goto("https://example.com");
-  const pageTitle = await page.title();
-  await browser.close();
+You can start editing the API by modifying `api/index.ts`. The API auto-updates as you edit the file.
 
-  return { pageTitle };
-});
-```
+## Deploy on Vercel
 
-### 3) Browser selection (dev vs prod)
-```ts
-// lib/browser.ts
-import { chromium, type Browser } from "playwright-core";
-import chromiumLambda from "@sparticuz/chromium";
-import { env } from "./env.js";
+The recommended way to deploy this Bun + Elysia app is to use the [Vercel Platform](https://vercel.com/new).
 
-const isProd = env.NODE_ENV === "production";
-
-export async function launchBrowser() {
-  let browser: Browser;
-
-  if (isProd) {
-    browser = await chromium.launch({
-      args: [...chromiumLambda.args],
-      executablePath: await chromiumLambda.executablePath(),
-    });
-  } else {
-    const { chromium } = await import("playwright");
-    browser = await chromium.launch({ headless: false });
-  }
-
-  return browser;
-}
-```
-
-## Commands
-```bash
-pnpm dev
-pnpm build
-pnpm lint
-```
-
-## Deployment status
-Only Vercel has been confirmed to work for deployment at this stage.
+Check out the [Vercel functions documentation](https://vercel.com/docs/functions/runtimes/bun) for more details.
