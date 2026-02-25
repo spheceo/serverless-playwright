@@ -6,7 +6,7 @@ const app = new Elysia()
 
 app.get('/favicon.ico', () => file('./public/favicon.ico'))
 
-app.get("/", () => "Welcome to serverless-playwright!")
+app.get("/", () => "Welcome to {{ project_name }}!")
 
 app.get("/test", async () => {
   const browser = await launchBrowser();

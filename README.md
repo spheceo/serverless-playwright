@@ -1,6 +1,6 @@
-# test
+# {{ project_name }}
 
-This repository provides a minimal Bun API template built with the Elysia framework and intended for deployment on Vercel.
+This repository provides a minimal serverless Playwright template built with Bun and Elysia, intended for deployment on Vercel. It uses `@sparticuz/chromium` for serverless Chromium in production and `@t3-oss/env-core` for environment handling so the app can switch behavior between development and production.
 
 ## Getting Started
 

@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "{{ project_name }}",
   "version": "0.0.0",
   "scripts": {
     "dev": "PORT=8080 bun run --watch api/index.ts"
